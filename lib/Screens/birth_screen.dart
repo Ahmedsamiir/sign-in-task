@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:registertask/Screens/gender_screen.dart';
 
 import '../shared/colors/colors.dart';
+import '../shared/components/components.dart';
 
 class BirthScreen extends StatefulWidget {
   BirthScreen({Key? key}) : super(key: key);
@@ -29,7 +31,11 @@ class _BirthScreenState extends State<BirthScreen> {
               children: [
                 Text(
                   "When is your Birthday?",
-                  style: TextStyle(fontSize: 28, color: HexColor("#000000")),
+                  style: TextStyle(
+                      fontSize: 28,
+                      color: HexColor("#000000"),
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.normal),
                 ),
                 SizedBox(
                   height: 30.0,
@@ -38,11 +44,19 @@ class _BirthScreenState extends State<BirthScreen> {
                   children: [
                     Text(
                       "In your profile, you can specify",
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.normal),
                     ),
                     Text(
                       "who will see it",
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.normal),
                     ),
                   ],
                 ),
@@ -78,11 +92,14 @@ class _BirthScreenState extends State<BirthScreen> {
                   child: MaterialButton(
                     child: Text(
                       'Next',
-                      style:
-                          TextStyle(fontSize: 18, color: HexColor("#FFFFFF")),
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: HexColor("#FFFFFF"),
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.normal),
                     ),
                     onPressed: () {
-                      //  navigateTo(context, BirthScreen());
+                      navigateTo(context, GenderScreen());
                     },
                   ),
                 ),

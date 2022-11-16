@@ -21,7 +21,11 @@ class PhoneScreen extends StatelessWidget {
             children: [
               Text(
                 "Enter your phone number",
-                style: TextStyle(fontSize: 28, color: HexColor("#000000")),
+                style: TextStyle(
+                    fontSize: 25,
+                    color: HexColor("#000000"),
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.normal),
               ),
               SizedBox(
                 height: 20.0,

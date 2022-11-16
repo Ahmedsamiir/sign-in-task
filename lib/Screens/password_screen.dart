@@ -17,7 +17,10 @@ class PasswordScreen extends StatelessWidget {
             children: [
               Text(
                 "Create a Password",
-                style: TextStyle(fontSize: 28, color: HexColor("#000000")),
+                style: TextStyle(
+                    fontSize: 28,
+                    color: HexColor("#000000"),
+                    fontFamily: 'Roboto'),
               ),
               SizedBox(
                 height: 20.0,
@@ -34,7 +37,6 @@ class PasswordScreen extends StatelessWidget {
                     }
                   },
                   decoration: const InputDecoration(
-                    //prefixIcon: Icon(Icons.email_outlined),
                     labelText: "Password",
                     border: OutlineInputBorder(),
                   ),

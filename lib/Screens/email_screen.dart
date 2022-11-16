@@ -21,7 +21,10 @@ class EmailScreen extends StatelessWidget {
             children: [
               Text(
                 "Enter your email address",
-                style: TextStyle(fontSize: 28, color: HexColor("#000000")),
+                style: TextStyle(
+                    fontSize: 28,
+                    color: HexColor("#000000"),
+                    fontFamily: 'Roboto'),
               ),
               SizedBox(
                 height: 20.0,
@@ -38,7 +41,6 @@ class EmailScreen extends StatelessWidget {
                     }
                   },
                   decoration: const InputDecoration(
-                    //prefixIcon: Icon(Icons.email_outlined),
                     labelText: "Enter your email address",
                     border: OutlineInputBorder(),
                   ),

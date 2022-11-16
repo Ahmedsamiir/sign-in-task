@@ -22,9 +22,11 @@ class RegisterationScreeen extends StatelessWidget {
               Text(
                 "Registation in UDrive",
                 style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: HexColor("#000000")),
+                  fontSize: 28,
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.normal,
+                  color: HexColor("#000000"),
+                ),
               ),
               SizedBox(
                 height: 15,
@@ -35,11 +37,19 @@ class RegisterationScreeen extends StatelessWidget {
                     children: [
                       Text(
                         "We can help you create an ",
-                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                          fontFamily: 'Roboto',
+                        ),
                       ),
                       Text(
                         "account in a few steps.",
-                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                          fontFamily: 'Roboto',
+                        ),
                       ),
                     ],
                   )),
@@ -58,7 +68,11 @@ class RegisterationScreeen extends StatelessWidget {
                 child: MaterialButton(
                   child: Text(
                     'Start',
-                    style: TextStyle(fontSize: 18, color: HexColor("#FFFFFF")),
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: HexColor("#FFFFFF"),
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w400),
                   ),
                   onPressed: () {
                     navigateTo(context, NameScreen());

@@ -12,7 +12,9 @@ class GenderScreen extends StatefulWidget {
 }
 
 class _GenderScreenState extends State<GenderScreen> {
+  var otherController = TextEditingController();
   int _value = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +26,11 @@ class _GenderScreenState extends State<GenderScreen> {
             children: [
               Text(
                 "Please enter your gender",
-                style: TextStyle(fontSize: 28, color: HexColor("#000000")),
+                style: TextStyle(
+                    fontSize: 28,
+                    color: HexColor("#000000"),
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.normal),
               ),
               SizedBox(
                 height: 30.0,
@@ -34,7 +40,11 @@ class _GenderScreenState extends State<GenderScreen> {
                 children: [
                   Text(
                     "Male",
-                    style: TextStyle(fontSize: 14, color: HexColor("#000000")),
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: HexColor("#000000"),
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.normal),
                   ),
                   Spacer(),
                   Container(
@@ -61,7 +71,11 @@ class _GenderScreenState extends State<GenderScreen> {
                 children: [
                   Text(
                     "Female",
-                    style: TextStyle(fontSize: 14, color: HexColor("#000000")),
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: HexColor("#000000"),
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.normal),
                   ),
                   Spacer(),
                   Container(
@@ -91,16 +105,27 @@ class _GenderScreenState extends State<GenderScreen> {
                     children: [
                       Text(
                         "Others",
-                        style:
-                            TextStyle(fontSize: 14, color: HexColor("#000000")),
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: HexColor("#000000"),
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.normal),
                       ),
                       Text(
-                        "Select 'Other' to specify a different gender, or ",
-                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                        "Select 'Other' to specify a different gender ",
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w200),
                       ),
                       Text(
-                        "if you don\'t want to specify it",
-                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                        ", or if you don\'t want to specify it",
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w200),
                       ),
                     ],
                   ),
@@ -117,6 +142,36 @@ class _GenderScreenState extends State<GenderScreen> {
                       onChanged: (int? value) {
                         setState(() {
                           _value = value!;
+                          if (_value == 3) {
+                            Column(
+                              children: [
+                                SizedBox(
+                                  height: 20.0,
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  height: 36,
+                                  child: TextFormField(
+                                    controller: otherController,
+                                    keyboardType: TextInputType.name,
+                                    validator: (val) {
+                                      if (val!.isEmpty) {
+                                        return "please Enter your gender";
+                                      }
+                                    },
+                                    decoration: const InputDecoration(
+                                      //prefixIcon: Icon(Icons.email_outlined),
+                                      labelText: "Gender",
+                                      border: OutlineInputBorder(),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20.0,
+                                ),
+                              ],
+                            );
+                          }
                         });
                       },
                     ),

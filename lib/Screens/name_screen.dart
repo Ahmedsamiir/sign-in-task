@@ -22,7 +22,11 @@ class NameScreen extends StatelessWidget {
             children: [
               Text(
                 "What\'s your name?",
-                style: TextStyle(fontSize: 28, color: HexColor("#000000")),
+                style: TextStyle(
+                    fontSize: 28,
+                    color: HexColor("#000000"),
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.normal),
               ),
               SizedBox(
                 height: 30.0,
@@ -75,11 +79,19 @@ class NameScreen extends StatelessWidget {
                 children: [
                   Text(
                     "If you use your real name it will be",
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.normal),
                   ),
                   Text(
                     "easier for friends to find you",
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.normal),
                   ),
                 ],
               ),
@@ -98,7 +110,11 @@ class NameScreen extends StatelessWidget {
                 child: MaterialButton(
                   child: Text(
                     'Next',
-                    style: TextStyle(fontSize: 18, color: HexColor("#FFFFFF")),
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: HexColor("#FFFFFF"),
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.normal),
                   ),
                   onPressed: () {
                     navigateTo(context, BirthScreen());

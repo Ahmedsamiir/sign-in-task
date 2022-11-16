@@ -5,19 +5,40 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:registertask/Screens/registration_screen.dart';
 import 'package:registertask/modules/google_sign_in.dart';
+import 'package:registertask/services/auth_provider.dart';
 import 'package:registertask/shared/components/components.dart';
 
 import '../shared/colors/colors.dart';
+import 'home_page.dart';
 
-class SignIn1 extends StatelessWidget {
-  var formKey = GlobalKey<FormState>();
+class SignIn1 extends StatefulWidget {
   SignIn1({Key? key}) : super(key: key);
+
+  @override
+  State<SignIn1> createState() => _SignIn1State();
+}
+
+class _SignIn1State extends State<SignIn1> {
+  @override
+  void initState() {
+    var authProvider = Provider.of<AuthProvider>(context, listen: false);
+    authProvider.currentUser.listen((fbUser) {
+      if (fbUser != null) {
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => HomePage()));
+      }
+    });
+    super.initState();
+  }
+
+  var formKey = GlobalKey<FormState>();
 
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    var authProvider = Provider.of<AuthProvider>(context);
     return ChangeNotifierProvider(
       create: (context) => GoogleSignInProvider(),
       child: Scaffold(
@@ -36,21 +57,24 @@ class SignIn1 extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline4?.copyWith(
                         color: HexColor("#000000"),
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'Roboto',
                         fontSize: 37),
                   ),
                   Text(
                     "Welcome Back, ",
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1
-                        ?.copyWith(color: HexColor("#000000"), fontSize: 28),
+                    style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                        color: HexColor("#000000"),
+                        fontSize: 28,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.normal),
                   ),
                   Text(
                     "You have been missed",
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1
-                        ?.copyWith(color: HexColor("#000000"), fontSize: 28),
+                    style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                        color: HexColor("#000000"),
+                        fontSize: 28,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.normal),
                   ),
                   const SizedBox(
                     height: 10.0,
@@ -101,7 +125,10 @@ class SignIn1 extends StatelessWidget {
                           child: Text(
                             "Forget Password?",
                             style: TextStyle(
-                                fontSize: 15, color: HexColor("#000000")),
+                              fontSize: 15,
+                              color: HexColor("#000000"),
+                              fontFamily: 'Roboto',
+                            ),
                           )),
                     ],
                   ),
@@ -123,7 +150,10 @@ class SignIn1 extends StatelessWidget {
                         child: Text(
                           'Sign in',
                           style: TextStyle(
-                              fontSize: 18, color: HexColor("#FFFFFF")),
+                            fontSize: 18,
+                            color: HexColor("#FFFFFF"),
+                            fontFamily: 'Roboto',
+                          ),
                         ),
                         onPressed: () {
                           final provider = Provider.of<GoogleSignInProvider>(
@@ -156,7 +186,9 @@ class SignIn1 extends StatelessWidget {
                         height: 50.0,
                         width: 100.0,
                         child: IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              authProvider.loginFacebook();
+                            },
                             icon: Icon(
                               FontAwesomeIcons.facebook,
                               color: HexColor("#3C5A9A"),
@@ -185,6 +217,7 @@ class SignIn1 extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.grey,
+                          fontFamily: 'Roboto',
                         ),
                       ),
                       TextButton(
@@ -194,9 +227,11 @@ class SignIn1 extends StatelessWidget {
                         child: Text(
                           'Register Now',
                           style: TextStyle(
-                              fontSize: 16,
-                              color: HexColor("#000000"),
-                              fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            color: HexColor("#000000"),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Roboto',
+                          ),
                         ),
                       ),
                     ],
